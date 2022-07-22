@@ -58,7 +58,7 @@ void	sigrec(int signo, siginfo_t *info, __attribute((unused)) void *context)
 			g_client_info.cursor++;
 		}
 	}
-	else
+	if (signo == SIGUSR2 || !g_client_info.msg[g_client_info.cursor])
 		exit(0);
 }
 
