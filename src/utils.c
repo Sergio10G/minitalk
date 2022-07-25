@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:54:33 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2022/07/21 19:09:28 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:30:01 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,35 +44,7 @@ void	ft_putint(int num)
 	else
 		ft_putchar(num + '0');
 }
-/*
-void	ft_putint(int num)
-{
-	char			buf[20];
-	int				i;
-	unsigned int	u_num;
 
-	u_num = num;
-	if (num == 0)
-		ft_putchar('0');
-	else 
-	{
-		if (num < 0)
-		{
-			ft_putchar('-');
-			u_num = num * -1;
-		}
-		i = 0;
-		while (u_num > 0)
-		{
-			buf[i] = u_num % 10 + '0';
-			u_num /= 10;
-			i++;
-		}
-		while (i >= 0)
-			ft_putchar(buf[i--]);
-	}
-}
-*/
 int	ft_isspace(char c)
 {
 	return (c == '\t' || c == '\n' || c == '\v' \

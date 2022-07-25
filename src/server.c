@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:54:43 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2022/07/21 20:32:05 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:28:28 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	sigrec(int signo, siginfo_t *info, __attribute((unused)) void *context)
 
 void	receive_bit(int signo, pid_t pid, t_marked_buffer *mb)
 {
+	int	end;
+
+	end = 0;
 	if (signo == SIGUSR1)
 		mb->current_char |= 1 << mb->bit_count;
 	mb->bit_count++;
@@ -56,12 +59,13 @@ void	receive_bit(int signo, pid_t pid, t_marked_buffer *mb)
 			clear_buffer(mb);
 			mb->cursor = 0;
 			mb->first_bit = 0;
-			kill(pid, SIGUSR2);
+			end = 1;
 		}
 		mb->current_char = 0;
 		mb->bit_count = 0;
 	}
-	kill(pid, SIGUSR1);
+	if (!end)
+		kill(pid, SIGUSR1);
 }
 
 void	clear_buffer(t_marked_buffer *mb)

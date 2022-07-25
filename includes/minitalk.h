@@ -11,12 +11,19 @@
 # include <unistd.h>  
 
 /*
+ * Macros
+ * */
+
+# define MSG_DELAY_US 1
+# define BUF_SIZE 1000000000
+
+/*
  * Structs
  * */
 
 typedef struct s_marked_buffer
 {
-	char	buffer[1000000000];
+	char	buffer[BUF_SIZE];
 	char	current_char;
 	size_t	cursor;
 	size_t	bit_count;
