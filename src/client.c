@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:54:51 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2022/07/25 17:41:41 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:26:58 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ int main(int argc, char **argv)
 {
 	struct sigaction	signal_listener;
 	pid_t				server_pid;
-	size_t				i;
 
 	if (argc < 3)
 		error_exit_msg("To few parameters");
 	else if (argc > 3)
 		error_exit_msg("To many parameters");
 	server_pid = (pid_t) ft_atoui(argv[1]);
-	i = 0;
 	if (server_pid > 1)
 	{
 		g_cinfo.server_pid = server_pid;
